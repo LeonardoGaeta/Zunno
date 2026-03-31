@@ -16,9 +16,18 @@
   --black-transparent: rgba(0, 0, 0, 0.5);
   --transparent: rgb(159, 159, 159, 0.5);
 }
+
 .dark {
 }
 
-.shadow-custom {
+.shadow-custom-s {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-custom-b {
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+html {
+  height: 100%;
 }

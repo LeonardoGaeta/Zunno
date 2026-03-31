@@ -1,0 +1,26 @@
+[
+    {
+        "identification": {
+            "name": {
+                "en": "",
+                "pt": [""]
+            },
+            "abbreviation": {
+                "en": "",
+                "pt": ""
+            }
+        },
+        "data": {
+            "classification": "",
+            "pronunciation": "",
+            "exampleWords": [
+                {
+                    "en": "",
+                    "pt": ""
+                }
+            ],
+            "imageUrl": [""],
+            "relatedWords": [""]
+        }
+    }
+]

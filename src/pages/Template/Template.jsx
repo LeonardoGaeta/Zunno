@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 function Template({ children }) {
     return (
         <div className="flex flex-col min-h-screen overflow-x-hidden">
-            <Header />
+            <Header returnable={false} />
 
             <Content>
                 {children}

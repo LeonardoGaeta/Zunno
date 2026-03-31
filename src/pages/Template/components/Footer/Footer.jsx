@@ -10,7 +10,7 @@ function Footer() {
     return (
         <div className="
             w-full min-h-24 flex flex-nowrap items-center justify-around 
-            px-4 sticky bottom-0 shadow-custom-b bg-(--secondary)
+            px-4 sticky bottom-0 shadow-custom-s bg-(--secondary)
         ">
             <Botao rota={'/info'}>
                 <InfoIcon className="w-10 h-10 max-h-full" />

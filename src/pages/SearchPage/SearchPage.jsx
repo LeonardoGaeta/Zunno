@@ -1,10 +1,8 @@
-
+import SearchBar from "./components/SearchBar";
 
 function SearchPage() {
     return (
-        <div className="">
-            BBBBBBBB
-        </div>
+        <SearchBar />
     )
 }
 

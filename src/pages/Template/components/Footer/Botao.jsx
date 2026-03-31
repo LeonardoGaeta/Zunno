@@ -7,7 +7,7 @@ function Botao({ rota, children }) {
                 <>
                     {/* Círculo Maior */}
                     <div className={`
-                        absolute w-24 h-24 rounded-full bg-(--secondary) shadow-custom-b
+                        absolute w-24 h-24 rounded-full bg-(--secondary) shadow-custom-s
                         transition-all duration-500 ease-out z-10
                         ${isActive ? "-translate-y-8 opacity-100" : "translate-y-0 opacity-0"}
                     `} />

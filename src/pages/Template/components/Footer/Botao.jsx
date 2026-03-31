@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Botao({ rota, children }) {
     return (
-        <NavLink to={rota} className="relative w-20 h-full flex justify-center items-center">
+        <NavLink to={rota} className="relative w-20 h-24 flex justify-center items-center">
             {({ isActive }) => (
                 <>
                     {/* Círculo Maior */}

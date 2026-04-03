@@ -1,7 +1,7 @@
 import InfoIcon from "../../../../assets/footerBtns/Vetor - Info.svg?react";
 import GlossaryIcon from "../../../../assets/footerBtns/Vetor - Glossaario.svg?react";
 import SearchIcon from "../../../../assets/footerBtns/Vetor - Pesquisar.svg?react";
-import TranslateIcon from "../../../../assets/footerBtns/Vetor - Pesquisar.svg?react";
+import TranslateIcon from "../../../../assets/footerBtns/Vetor - Tradutor 3.svg?react";
 import ConfigIcon from "../../../../assets/footerBtns/Vetor - Configurações.svg?react";
 
 import Botao from "./Botao";

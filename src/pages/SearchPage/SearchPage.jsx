@@ -1,19 +1,20 @@
 import SearchBar from "./components/SearchBar";
 import SubContent from "../Template/components/SubContent";
 import History from "./components/History";
-import DailyWord from "./components/DailyWord";
+import Word from "../Components/Word";
 
-import { useWords } from "../../contexts/WordsContext";
+import { useWords, pickDailyWord } from "../../contexts/WordsContext";
 
 function SearchPage() {
     const { data } = useWords();
+    const dailyWord = data.length > 0 ? pickDailyWord(data) : null;
 
     return (
         <div className="flex flex-col gap-3">
             <SearchBar />
             <SubContent>
                 <p className="text-(--secondary)">Pesquisas recentes</p>
-
+                <Word word={ dailyWord } />
                 <History />
                 <DailyWord />
             </SubContent>

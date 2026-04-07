@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import GoIcon from "../../../assets/Vetor - Ir.svg?react";
+import ArrowIcon from "../../../assets/Vetor - Seta.svg?react";
 import ClockIcon from "../../../assets/Vetor - Relógio.svg?react";
 
 
@@ -24,7 +24,7 @@ function History() {
                         <div className="flex gap-4 relative">
                             <ClockIcon className="text-(--black-transparent)" />
                             <p className="text-(--black-transparent)">{word}</p>
-                            <GoIcon className="text-(--black-transparent) absolute right-0" />
+                            <ArrowIcon className="text-(--black-transparent) absolute right-0" />
                         </div>
 
                         {index !== history.length - 1 && (

@@ -1,26 +1,98 @@
 [
-    {
-        "identification": {
-            "name": {
-                "en": "",
-                "pt": [""]
-            },
-            "abbreviation": {
-                "en": "",
-                "pt": ""
-            }
-        },
-        "data": {
-            "classification": "",
-            "pronunciation": "",
-            "exampleWords": [
-                {
-                    "en": "",
-                    "pt": ""
-                }
-            ],
-            "imageUrl": [""],
-            "relatedWords": [""]
+  {
+    "identification": {
+      "name": {
+        "en": "House",
+        "pt": ["Casa"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "pronunciation": "/haʊs/",
+      "exampleWords": [
+        {
+          "en": "The house is big.",
+          "pt": "A casa é grande."
         }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["home", "building"]
     }
+  },
+  {
+    "identification": {
+      "name": {
+        "en": "Run",
+        "pt": ["Correr"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "verb",
+      "pronunciation": "/rʌn/",
+      "exampleWords": [
+        {
+          "en": "I run every morning.",
+          "pt": "Eu corro toda manhã."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["jog", "sprint"]
+    }
+  },
+  {
+    "identification": {
+      "name": {
+        "en": "Happy",
+        "pt": ["Feliz"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "adjective",
+      "pronunciation": "/ˈhæpi/",
+      "exampleWords": [
+        {
+          "en": "She feels happy today.",
+          "pt": "Ela está feliz hoje."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["joyful", "glad"]
+    }
+  },
+  {
+    "identification": {
+      "name": {
+        "en": "Book",
+        "pt": ["Livro"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "pronunciation": "/bʊk/",
+      "exampleWords": [
+        {
+          "en": "This book is interesting.",
+          "pt": "Este livro é interessante."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["novel", "text"]
+    }
+  }
 ]

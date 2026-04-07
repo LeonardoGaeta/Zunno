@@ -1,4 +1,4 @@
-import BackIcon from '../../../assets/Vetor - Voltar.svg?react';
+import ArrowIcon from '../../../assets/Vetor - Seta.svg?react';
 import imageUrl from '../../../assets/generic-logo-140952.png';
 
 function Header({ returnable }) {
@@ -9,7 +9,7 @@ function Header({ returnable }) {
             {/* Seta de voltar */}
             {returnable && 
             <div className="absolute left-10">
-                <BackIcon className="w-10 h-10 color-(--primary) cursor-pointer" />
+                <ArrowIcon className="w-10 h-10 color-(--primary) cursor-pointer -scale-x-100" />
             </div>}
 
             {/* Logo / Tenho que ajustar ela ainda */}

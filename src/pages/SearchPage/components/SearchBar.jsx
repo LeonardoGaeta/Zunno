@@ -1,4 +1,4 @@
-import SearchIcon from '../../../assets/footerBtns/Vetor - Pesquisar.svg?react'
+import SearchIcon from '@assets/footerBtns/Vetor - Pesquisar.svg?react'
 
 function SearchBar() {
     return (

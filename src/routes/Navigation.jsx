@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Template from "../pages/Template/Template";
+import Template from "@pages/Template/Template";
 
-import InfoPage from "../pages/InfoPage/InfoPage";
-import SearchPage from "../pages/SearchPage/SearchPage";
-import GlossaryPage from "../pages/GlossaryPage/GlossaryPage";
-import TranslatePage from "../pages/TranslatePage/TranslatePage";
-import ConfigPage from "../pages/ConfigPage/ConfigPage";
+import InfoPage from "@pages/InfoPage/InfoPage";
+import SearchPage from "@pages/SearchPage/SearchPage";
+import GlossaryPage from "@pages/GlossaryPage/GlossaryPage";
+import TranslatePage from "@pages/TranslatePage/TranslatePage";
+import ConfigPage from "@pages/ConfigPage/ConfigPage";
 
 function Navigation() {
     return(

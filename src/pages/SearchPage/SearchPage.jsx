@@ -1,7 +1,7 @@
 import SearchBar from "./components/SearchBar";
-import SubContent from "../Template/components/SubContent";
+import SubContent from "@pages/Template/components/SubContent";
 import History from "./components/History";
-import Word from "../Components/Word";
+import Word from "@pages/Components/Word";
 
 import { useWords, pickDailyWord } from "../../contexts/WordsContext";
 
@@ -14,9 +14,8 @@ function SearchPage() {
             <SearchBar />
             <SubContent>
                 <p className="text-(--secondary)">Pesquisas recentes</p>
-                <Word word={ dailyWord } />
                 <History />
-                <DailyWord />
+                <Word word={ dailyWord } />
             </SubContent>
         </div>
     )

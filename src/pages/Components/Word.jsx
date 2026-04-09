@@ -1,4 +1,4 @@
-    import { useWords, pickDailyWord } from "../../../contexts/WordsContext";
+    import { useWords, pickDailyWord } from "@contexts/WordsContext";
 
     function Word({ word }) {
         return(

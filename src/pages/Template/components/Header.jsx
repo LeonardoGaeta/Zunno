@@ -1,5 +1,5 @@
-import ArrowIcon from '../../../assets/Vetor - Seta.svg?react';
-import imageUrl from '../../../assets/generic-logo-140952.png';
+import ArrowIcon from '@assets/Vetor - Seta.svg?react';
+import imageUrl from '@assets/generic-logo-140952.png';
 
 function Header({ returnable }) {
     return (

@@ -21,14 +21,14 @@ function History() {
                 { (history && history.length > 0) 
                 ? history.map((word, index) => (
                     <div key={word} className="relative py-3">
-                        <div className="flex gap-4 relative">
-                            <ClockIcon className="text-(--black-transparent)" />
+                        <div className="flex items-center gap-4 relative">
+                            <ClockIcon className="text-(--black-transparent) w-8 h-8" />
                             <p className="text-(--black-transparent)">{word}</p>
-                            <ArrowIcon className="text-(--black-transparent) absolute right-0" />
+                            <ArrowIcon className="text-(--black-transparent) absolute right-0 w-8 h-8" />
                         </div>
 
                         {index !== history.length - 1 && (
-                            <div className="border-b border-(--black-transparent) ml-10 mr-2 mt-2" />
+                            <div className="border-b-2 border-(--black-transparent) ml-10 mr-2 mt-2" />
                         )}
                     </div>
                 ))

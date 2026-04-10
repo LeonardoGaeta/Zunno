@@ -7,7 +7,7 @@ import { WordsProvider } from "../../contexts/WordsContext"
 function Template({ children }) {
     return (
         <WordsProvider>
-            <div className="flex flex-col min-h-screen overflow-x-hidden">
+            <div className="flex flex-col min-h-screen overflow-x-hidden text-2xl">
                 <Header />
                 <Content>
                     { children }

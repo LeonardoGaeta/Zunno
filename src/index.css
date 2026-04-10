@@ -13,6 +13,7 @@
   --secondary-transparent: rgba(26, 55, 77, 0.5);
   --tertiary-transparent: rgba(118, 200, 147, 0.5);
 
+  --text-topper: rgba(0, 0, 0, 1);
   --black-transparent: rgba(0, 0, 0, 0.5);
   --transparent: rgb(159, 159, 159, 0.5);
 }

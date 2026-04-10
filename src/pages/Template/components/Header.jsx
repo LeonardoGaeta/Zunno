@@ -1,10 +1,10 @@
-import ArrowIcon from '@assets/Vetor - Seta.svg?react';
-import imageUrl from '@assets/generic-logo-140952.png';
+import ArrowIcon from '@assets/images/Vetor - Seta.svg?react';
+import imageUrl from '@assets/images/generic-logo-140952.png';
 
 function Header({ returnable }) {
     return (
         <div
-            className="w-full h-24 flex items-center justify-center shadow-custom-b relative bg-(--bg)"
+            className="w-full h-24 flex items-center justify-center shadow-custom-b relative bg-(--bg) shrink-0"
         >
             {/* Seta de voltar */}
             {returnable && 

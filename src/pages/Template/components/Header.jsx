@@ -4,7 +4,7 @@ import imageUrl from '@assets/images/generic-logo-140952.png';
 function Header({ returnable }) {
     return (
         <div
-            className="w-full h-24 flex items-center justify-center shadow-custom-b relative bg-(--bg) shrink-0"
+            className="w-full h-24 flex items-center justify-center shadow-custom-b relative bg-(--bg) shrink-0 banana"
         >
             {/* Seta de voltar */}
             {returnable && 

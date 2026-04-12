@@ -12,8 +12,13 @@
     },
     "data": {
       "classification": "noun",
+      "meaning": "Uma construção para habitação humana",
       "pronunciation": "/haʊs/",
       "exampleWords": [
+        {
+          "en": "The house is big.",
+          "pt": "A casa é grande."
+        },
         {
           "en": "The house is big.",
           "pt": "A casa é grande."
@@ -36,6 +41,7 @@
     },
     "data": {
       "classification": "verb",
+      "meaning": "Mover-se rapidamente a pé",
       "pronunciation": "/rʌn/",
       "exampleWords": [
         {
@@ -60,6 +66,7 @@
     },
     "data": {
       "classification": "adjective",
+      "meaning": "Sentindo ou demonstrando felicidade",
       "pronunciation": "/ˈhæpi/",
       "exampleWords": [
         {
@@ -84,6 +91,7 @@
     },
     "data": {
       "classification": "noun",
+      "meaning": "Uma obra escrita ou impressa composta por páginas",
       "pronunciation": "/bʊk/",
       "exampleWords": [
         {

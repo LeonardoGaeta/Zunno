@@ -1,53 +1,115 @@
-    import EarIcon from '@assets/images/Vetor - Ouvir.svg?react';
-    import SaveIcon from '@assets/images/Vetor - Salvar.svg?react';
+import EarIcon from '@assets/images/Vetor - Ouvir.svg?react';
+import SaveIcon from '@assets/images/Vetor - Salvar.svg?react';
 
-    function Word({ word }) {
-        if (!word) return null;
+import { useState } from 'react';
 
-        return(
-            <div className="w-[calc(100%+1rem)]">
-                {/* Header */}
-                <div className="flex justify-between px-6 py-2 shadow-custom-b">
-                    <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
-                    <div className="flex gap-2">
-                        <div className="bg-(--secondary) p-3 rounded-full">
-                            <EarIcon className="text-(--tertiary) w-8 h-8" />
-                        </div>
-                        <div className="bg-(--secondary) p-3 rounded-full">
-                            <SaveIcon className="text-(--tertiary) w-8 h-8" />
-                        </div>
-                    </div>
-                </div>
+function Word({ word }) {
+    const [showTranslation, setShowTranslation] = useState({});
 
-                {/* Conteúdo */}
-                <div className='py-4 px-8 text-(--text-topper) flex flex-col gap-2'>
-                    <div className='flex'>
-                        <p>Tradução:</p>
-                        <p>Cocô</p>
+    if (!word) return null;
+
+    const toggleTranslation = (index) => {
+        setShowTranslation((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    }
+
+    return(
+        <div className="w-[calc(100%+1rem)]">
+            {/* Header */}
+            <div className="flex justify-between px-6 py-2 shadow-custom-b">
+                <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
+                <div className="flex gap-2">
+                    <div className="bg-(--secondary) p-3 rounded-full">
+                        <EarIcon className="text-(--tertiary) w-8 h-8" />
                     </div>
-                    <div className='flex'>
-                        <p>Pronúncia:</p>
-                        <p>Cocô</p>
-                    </div>
-                    <div className='flex'>
-                        <p>Significado:</p>
-                        <p>Cocô</p>
-                    </div>
-                    <div className='flex'>
-                        <p>Exemplo de frase:</p>
-                        <p>Cocô</p>
-                    </div>
-                    <div className='flex'>
-                        <p>Corresponência visual:</p>
-                        <p>Cocô</p>
-                    </div>
-                    <div className='flex'>
-                        <p>Palavras relacionadas:</p>
-                        <p>Cocô</p>
+                    <div className="bg-(--secondary) p-3 rounded-full">
+                        <SaveIcon className="text-(--tertiary) w-8 h-8" />
                     </div>
                 </div>
             </div>
-        );
-    }
 
-    export default Word;
+            {/* Conteúdo */}
+            <div className='py-4 px-8 text-(--text-topper) flex flex-col gap-2'>
+                <div className='flex items-end gap-1'>
+                    <p className='text-3xl'>Tradução:</p>
+                    <p className='text-(--black-transparent)'>
+                        {word.identification.name.pt.join(" • ")}
+                    </p>
+                </div>
+                <div className='flex items-end gap-1'>
+                    <p className='text-3xl'>Pronúncia:</p>
+                    <p className='text-(--black-transparent)'>
+                        {word.data.pronunciation}
+                    </p>
+                </div>
+                <div className='flex items-end gap-1'>
+                    <p className='text-3xl'>Significado:</p>
+                    <p className='text-(--black-transparent)'>
+                        {word.data.meaning}
+                    </p>
+                </div>
+                <div className='flex flex-col gap-1'>
+                    <p className='text-3xl'>Exemplo de frase:</p>
+                    <div className='text-(--black-transparent) ml-6 flex flex-col gap-5'>
+                        {word.data.exampleWords.map((val, i) => (
+                            <div key={i}>
+                                <p>{val.en}</p>
+                                
+                                <div className='ml-6'>
+                                    <div className="ml-6">
+                                        <div className="relative">
+                                            {/* Botão */}
+                                            <button
+                                              onClick={() => toggleTranslation(i)}
+                                              className={`
+                                                bg-(--tertiary) text-(--secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
+                                                transition-all duration-300 ease-in-out
+                                                ${showTranslation[i] ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}
+                                              `}
+                                            >
+                                            Mostrar tradução
+                                            </button>
+
+                                            {/* Tradução */}
+                                            <p
+                                            className={`
+                                                absolute top-0 left-0 text-(--black-transparent-2) text-xl
+                                                transition-all duration-300 ease-in-out
+                                                ${showTranslation[i] ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
+                                            `}
+                                            >
+                                            {val.pt}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                {word.data.imageUrl[0] && (
+                <div className='flex flex-col gap-1'>
+                    <p className='text-3xl'>Corresponência visual:</p>
+                    <div className='text-(--black-transparent) flex gap-5'>
+                        {word.data.imageUrl.map((val, i) => (
+                            <p key={i}>{val}</p>
+                        ))}
+                    </div>
+                </div>
+                )}
+                <div className='flex flex-col gap-1'>
+                    <p className='text-3xl'>Palavras relacionadas:</p>
+                    <div className='text-(--black-transparent)'>
+                        {word.data.relatedWords.map((val, i) => (
+                            <p key={i}>{val}</p>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Word;

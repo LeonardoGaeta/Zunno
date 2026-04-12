@@ -14,7 +14,6 @@ function useScrollShadows() {
             top: isScrollable && scrollTop > 5,
             bottom: isScrollable && scrollTop + clientHeight < scrollHeight - 5,
         });
-        console.log(scrollTop);
     }, []);
 
 

@@ -1,10 +1,14 @@
 import EarIcon from '@assets/images/Vetor - Ouvir.svg?react';
 import SaveIcon from '@assets/images/Vetor - Salvar.svg?react';
 
+import useTextToSpeech from '@hooks/useTextToSpeech';
+
 import { useState } from 'react';
 
 function Word({ word }) {
     const [showTranslation, setShowTranslation] = useState({});
+
+    const { speak, voices, isReady } = useTextToSpeech();
 
     if (!word) return null;
 
@@ -21,46 +25,58 @@ function Word({ word }) {
             <div className="flex justify-between px-6 py-2 shadow-custom-b">
                 <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
                 <div className="flex gap-2">
-                    <div className="bg-(--secondary) p-3 rounded-full">
+                    <button
+                      className="bg-(--secondary) p-3 rounded-full cursor-pointer"
+                      disabled={!isReady}
+                      onClick={() => speak(word.identification.name.en)}
+                    >
                         <EarIcon className="text-(--tertiary) w-8 h-8" />
-                    </div>
-                    <div className="bg-(--secondary) p-3 rounded-full">
+                    </button>
+                    <button
+                      className="bg-(--secondary) p-3 rounded-full cursor-pointer"
+                      onClick={() => console.log(voices.filter(voice => voice.localService))}
+                    >
                         <SaveIcon className="text-(--tertiary) w-8 h-8" />
-                    </div>
+                    </button>
                 </div>
             </div>
 
             {/* Conteúdo */}
             <div className='py-4 px-8 text-(--text-topper) flex flex-col gap-2'>
+                {/* Palavra traduzida */}
                 <div className='flex items-end gap-1'>
                     <p className='text-3xl'>Tradução:</p>
                     <p className='text-(--black-transparent)'>
                         {word.identification.name.pt.join(" • ")}
                     </p>
                 </div>
+                {/* Pronúncia */}
                 <div className='flex items-end gap-1'>
                     <p className='text-3xl'>Pronúncia:</p>
                     <p className='text-(--black-transparent)'>
                         {word.data.pronunciation}
                     </p>
                 </div>
+                {/* Significado */}
                 <div className='flex items-end gap-1'>
                     <p className='text-3xl'>Significado:</p>
                     <p className='text-(--black-transparent)'>
                         {word.data.meaning}
                     </p>
                 </div>
+                {/* Exemplo de frases */}
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Exemplo de frase:</p>
                     <div className='text-(--black-transparent) ml-6 flex flex-col gap-5'>
                         {word.data.exampleWords.map((val, i) => (
                             <div key={i}>
+                                {/* Frase em ingles */}
                                 <p>{val.en}</p>
                                 
                                 <div className='ml-6'>
                                     <div className="ml-6">
                                         <div className="relative">
-                                            {/* Botão */}
+                                            {/* Botão revelador */}
                                             <button
                                               onClick={() => toggleTranslation(i)}
                                               className={`
@@ -89,6 +105,7 @@ function Word({ word }) {
                         ))}
                     </div>
                 </div>
+                {/* Imagens */}
                 {word.data.imageUrl[0] && (
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Corresponência visual:</p>
@@ -99,6 +116,7 @@ function Word({ word }) {
                     </div>
                 </div>
                 )}
+                {/* Palavras relacionadas */}
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Palavras relacionadas:</p>
                     <div className='text-(--black-transparent)'>

@@ -16,7 +16,7 @@ function SearchPage() {
                 <p className="mb-2 text-3xl">Pesquisas recentes</p>
                 <History />
                 <div className="mt-10 -mx-2 px-2 py-2 rounded-t-2xl shadow-custom-s w-[calc(100%+1rem)] flex flex-col items-center justify-center">
-                    <p className="text-4xl">Word of the day</p>
+                    <p className="text-4xl text-center">Word of the day</p>
                     <div className="border-b-2 border-(--secondary) w-full max-w-[18%]" />
                 </div>
                 <Word word={ dailyWord } />

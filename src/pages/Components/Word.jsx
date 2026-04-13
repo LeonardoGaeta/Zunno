@@ -7,12 +7,16 @@ import useTextToSpeech from '@hooks/useTextToSpeech';
 
 import { useState } from 'react';
 
-function Word({ word }) {
+import { useParams } from 'react-router-dom';
+import { useWords } from "@contexts/WordsContext";
+
+function Word({ word: propWord }) {
+    const { wordName } = useParams();
+    const { data }= useWords();
+
     const [showTranslation, setShowTranslation] = useState({});
 
     const { speak, voices, isReady: isSpeachReady, isSpeaking } = useTextToSpeech();
-
-    if (!word) return null;
 
     const toggleTranslation = (index) => {
         setShowTranslation((prev) => ({
@@ -21,12 +25,18 @@ function Word({ word }) {
         }));
     }
 
+    const word = propWord || data.find(
+        w => w.identification.name.en.toLowerCase() === wordName?.toLocaleLowerCase()
+    );
+
+    if (!word) return null;
+
     return(
         <div className="w-[calc(100%+1rem)]">
             {/* Header */}
-            <div className="flex justify-between px-6 py-2 shadow-custom-b">
+            <div className="flex justify-between px-6 py-2 shadow-custom-b flex-wrap">
                 <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                     <Botao 
                       isReady={isSpeachReady} 
                       isActive={isSpeaking} 
@@ -45,21 +55,21 @@ function Word({ word }) {
             {/* Conteúdo */}
             <div className='py-4 px-8 text-(--text-topper) flex flex-col gap-2'>
                 {/* Palavra traduzida */}
-                <div className='flex items-end gap-1'>
+                <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Tradução:</p>
                     <p className='text-(--black-transparent)'>
                         {word.identification.name.pt.join(" • ")}
                     </p>
                 </div>
                 {/* Pronúncia */}
-                <div className='flex items-end gap-1'>
+                <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Pronúncia:</p>
                     <p className='text-(--black-transparent)'>
                         {word.data.pronunciation}
                     </p>
                 </div>
                 {/* Significado */}
-                <div className='flex items-end gap-1'>
+                <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Significado:</p>
                     <p className='text-(--black-transparent)'>
                         {word.data.meaning}
@@ -68,7 +78,7 @@ function Word({ word }) {
                 {/* Exemplo de frases */}
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Exemplo de frase:</p>
-                    <div className='text-(--black-transparent) ml-6 flex flex-col gap-5'>
+                    <div className='text-(--black-transparent) ml-6 flex flex-col gap-5 flex-wrap'>
                         {word.data.exampleWords.map((val, i) => (
                             <div key={i}>
                                 {/* Frase em ingles */}

@@ -4,8 +4,8 @@ function Botao({ isReady, isActive, onClick, children }) {
     return(
         <button
           className={`${!isActive 
-              ? 'bg-(--secondary) [&>svg>path]:stroke-(--tertiary)'
-              : 'bg-(--secondary) [&>svg]:fill-(--tertiary) [&>svg>path:first-child]:stroke-(--tertiary)'
+              ? 'bg-(--secondary) [&>svg]:fill-(--secondary) [&>svg>path]:stroke-(--tertiary)'
+              : 'bg-(--secondary) [&>svg]:fill-(--tertiary) [&>svg>path]:stroke-(--secondary) [&>svg>path:first-child]:stroke-(--tertiary)'
             } 
             
             p-3 rounded-full cursor-pointer

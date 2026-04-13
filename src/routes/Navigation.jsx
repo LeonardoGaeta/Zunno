@@ -8,6 +8,9 @@ import GlossaryPage from "@pages/GlossaryPage/GlossaryPage";
 import TranslatePage from "@pages/TranslatePage/TranslatePage";
 import ConfigPage from "@pages/ConfigPage/ConfigPage";
 
+import Word from "@pages/Components/Word";
+import SubContent from "@pages/Template/components/SubContent";
+
 function Navigation() {
     return(
         <BrowserRouter>
@@ -45,6 +48,15 @@ function Navigation() {
                     element={
                         <Template>
                             <ConfigPage />
+                        </Template>
+                    } />
+                <Route
+                    path="/word/:wordName"
+                    element={
+                        <Template>
+                            <SubContent>
+                                <Word />
+                            </SubContent>
                         </Template>
                     } />
             </Routes>

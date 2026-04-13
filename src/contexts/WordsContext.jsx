@@ -4,20 +4,38 @@ const WordsContext = createContext();
 
 function WordsProvider({ children }) {
     const [data, setData] = useState([]);
+    const [today, setToday] = useState(new Date());
 
     useEffect(() => {
-        fetch('/data/words.json')
+        const interval = setInterval(() => {
+            const currentDate = new Date();
+
+            setToday(prev => {
+                if (prev.getDate() !== currentDate.getDate()) {
+                    return currentDate;
+                }
+                return prev;
+            });
+        }, 1000 * 60);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        fetch('/data/words.json?nocache=' + Date.now())
             .then((res) => res.json())
             .then((json) => setData(json))
             .catch((error) => console.error('Erro ao carregar JSON:', error));
     }, []);
 
     return (
-        <WordsContext.Provider value={{ data }}>
+        <WordsContext.Provider value={{ data, today }}>
             {children}
         </WordsContext.Provider>
     );
 }
+
+
 function mulberry32(seed) {
     return () => {
         let t = seed += 0x6D2B79F5;
@@ -27,21 +45,22 @@ function mulberry32(seed) {
     }
 }
 
+
+const pickDailyWord = (words, date) => {
+    if (!words || words.length === 0) return null;
+    
+    const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    
+    let hash = 0;
+    for (let i = 0; i < dateString.length; i++) {
+        hash = Math.imul(31, hash) + dateString.charCodeAt(i) | 0;
+    }
+    
+    const rand = mulberry32(hash);
+    const index = Math.floor(rand() * words.length);
+    return words[index];
+};
+
 const useWords = () => useContext(WordsContext);
 
-
-const pickDailyWord = (words) => {
-    const today = new Date().toISOString().split("T")[0];
-
-    let hash = 0;
-
-    for (let i = 0 ; i < today.length ; i++) {
-        hash = Math.imul(31, hash) + today.charCodeAt(i) | 0;
-    }
-
-    const rand = mulberry32(hash);
-
-    return words[Math.floor(rand() * words.length)];
-}
-
-export { WordsProvider, useWords, pickDailyWord }
+export { WordsProvider, useWords, pickDailyWord }   

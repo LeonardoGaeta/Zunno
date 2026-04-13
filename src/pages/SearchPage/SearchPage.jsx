@@ -6,8 +6,8 @@ import Word from "@pages/Components/Word";
 import { useWords, pickDailyWord } from "@contexts/WordsContext";
 
 function SearchPage() {
-    const { data } = useWords();
-    const dailyWord = data.length > 0 ? pickDailyWord(data) : null;
+    const { data, today } = useWords();
+    const dailyWord = data.length > 0 ? pickDailyWord(data, today) : null;
 
     return (
         <div className="flex flex-col gap-3 text-(--secondary)">

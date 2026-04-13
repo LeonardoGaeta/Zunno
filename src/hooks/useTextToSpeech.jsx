@@ -1,5 +1,6 @@
 import EasySpeech from "easy-speech";
 import { useCallback, useEffect, useState } from "react";
+import ttsService from "@services/ttsService";
 
 
 
@@ -7,6 +8,7 @@ function useTextToSpeech() {
     const [isReady, setIsReady] = useState(false);
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [voices, setVoices] = useState([]);
+    const [profiles, setProfiles] = useState(ttsService.getAllProfiles());
 
     useEffect(() => {
         const initSpeech = async () => {
@@ -26,44 +28,47 @@ function useTextToSpeech() {
         initSpeech();
     }, []);
 
-    const speak = useCallback(async (text, voiceConfig = {}) => {
+    const refreshProfiles = () => setProfiles(ttsService.getAllProfiles());
+
+    const speak = useCallback(async (text, lang = "en-US", override = {}) => {
         if (!isReady) {
             console.warn("EasySpeech ainda não está pronto");
             return;
         }
 
         EasySpeech.cancel();
-
         if (isSpeaking) {
-            EasySpeech.cancel();
             setIsSpeaking(false);
             return;
         }
 
         setIsSpeaking(true);
 
-        const defaultVoice = EasySpeech.filterVoices({ language: 'en-US' })[0];
+        const activeProfile = profiles[lang] || profiles['en-US'];
+
+        const selectedVoice = 
+            voices.find(v => v.voiceURI === activeProfile.voiceURI)
+            || EasySpeech.filterVoices({ language: 'en-US' })[0]
+            || voices[0];
 
         try {
             await EasySpeech.speak({
                 text,
-                voice: voiceConfig.voice || defaultVoice,
-                pitch: voiceConfig.pitch || 1,
-                rate: voiceConfig.rate || 1,
-                volume: voiceConfig.volume || 1
+                voice: selectedVoice,
+                pitch: override.pitch ?? activeProfile.pitch,
+                rate: override.rate ?? activeProfile.rate,
+                volume: override.volume ?? activeProfile.volume
             });
 
             setIsSpeaking(false);
         } catch (err) {
+            if (err?.error !== "interrupted") console.error("Erro ao tentar falar: ", err);
+        } finally {
             setIsSpeaking(false);
-
-            if (err && err.error === "interrupted") return;
-
-            console.error("Erro ao tentar falar: ", err);
         }
-    }, [isReady, isSpeaking]);
+    }, [isReady, isSpeaking, profiles]);
 
-    return { speak, voices, isReady, isSpeaking };
+    return { speak, voices, isReady, isSpeaking, profiles, refreshProfiles};
 }
 
 export default useTextToSpeech;

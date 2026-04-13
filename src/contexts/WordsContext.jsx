@@ -36,10 +36,11 @@ const pickDailyWord = (words) => {
     let hash = 0;
 
     for (let i = 0 ; i < today.length ; i++) {
-        hash = Math.imul(31, hash) + today.charCodeAt(1) | 0;
+        hash = Math.imul(31, hash) + today.charCodeAt(i) | 0;
     }
 
     const rand = mulberry32(hash);
+
     return words[Math.floor(rand() * words.length)];
 }
 

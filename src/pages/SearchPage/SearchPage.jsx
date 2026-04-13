@@ -3,7 +3,7 @@ import SubContent from "@pages/Template/components/SubContent";
 import History from "./components/History";
 import Word from "@pages/Components/Word";
 
-import { useWords, pickDailyWord } from "../../contexts/WordsContext";
+import { useWords, pickDailyWord } from "@contexts/WordsContext";
 
 function SearchPage() {
     const { data } = useWords();

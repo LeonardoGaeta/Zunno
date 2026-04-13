@@ -1,6 +1,8 @@
 import EarIcon from '@assets/images/Vetor - Ouvir.svg?react';
 import SaveIcon from '@assets/images/Vetor - Salvar.svg?react';
 
+import Botao from './Button';
+
 import useTextToSpeech from '@hooks/useTextToSpeech';
 
 import { useState } from 'react';
@@ -8,7 +10,7 @@ import { useState } from 'react';
 function Word({ word }) {
     const [showTranslation, setShowTranslation] = useState({});
 
-    const { speak, voices, isReady } = useTextToSpeech();
+    const { speak, voices, isReady: isSpeachReady, isSpeaking } = useTextToSpeech();
 
     if (!word) return null;
 
@@ -25,19 +27,18 @@ function Word({ word }) {
             <div className="flex justify-between px-6 py-2 shadow-custom-b">
                 <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
                 <div className="flex gap-2">
-                    <button
-                      className="bg-(--secondary) p-3 rounded-full cursor-pointer"
-                      disabled={!isReady}
-                      onClick={() => speak(word.identification.name.en)}
-                    >
-                        <EarIcon className="text-(--tertiary) w-8 h-8" />
-                    </button>
-                    <button
-                      className="bg-(--secondary) p-3 rounded-full cursor-pointer"
-                      onClick={() => console.log(voices.filter(voice => voice.localService))}
-                    >
+                    <Botao 
+                      isReady={isSpeachReady} 
+                      isActive={isSpeaking} 
+                      onClick={() => speak(word.identification.name.en)}>
+                        <EarIcon className="w-8 h-8" />
+                    </Botao>
+                    <Botao 
+                      isReady={true} 
+                      isActive={false} 
+                      onClick={() => console.log(voices.filter(voice => voice.localService))}>
                         <SaveIcon className="text-(--tertiary) w-8 h-8" />
-                    </button>
+                    </Botao>
                 </div>
             </div>
 

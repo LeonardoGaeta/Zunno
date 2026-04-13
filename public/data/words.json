@@ -18,10 +18,6 @@
         {
           "en": "The house is big.",
           "pt": "A casa é grande."
-        },
-        {
-          "en": "The house is big.",
-          "pt": "A casa é grande."
         }
       ],
       "imageUrl": [""],
@@ -101,6 +97,214 @@
       ],
       "imageUrl": [""],
       "relatedWords": ["novel", "text"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Water",
+        "pt": ["Água"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "meaning": "Líquido essencial à vida",
+      "pronunciation": "/ˈwɔːtər/",
+      "exampleWords": [
+        {
+          "en": "I drink water every day.",
+          "pt": "Eu bebo água todos os dias."
+        }
+      ],
+      "imageUrl": ["https://placehold.co/100x100/blue/white?text=Water"],
+      "relatedWords": ["liquid", "drink"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Eat",
+        "pt": ["Comer"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "verb",
+      "meaning": "Ingerir alimentos",
+      "pronunciation": "/iːt/",
+      "exampleWords": [
+        {
+          "en": "I eat breakfast at 7am.",
+          "pt": "Eu como café da manhã às 7h."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["consume", "meal"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Car",
+        "pt": ["Carro"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "meaning": "Veículo automotor de transporte pessoal",
+      "pronunciation": "/kɑːr/",
+      "exampleWords": [
+        {
+          "en": "The car is fast.",
+          "pt": "O carro é rápido."
+        }
+      ],
+      "imageUrl": ["https://placehold.co/100x100/red/white?text=Car"],
+      "relatedWords": ["vehicle", "auto"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Sleep",
+        "pt": ["Dormir"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "verb",
+      "meaning": "Estado de repouso do corpo e mente",
+      "pronunciation": "/sliːp/",
+      "exampleWords": [
+        {
+          "en": "I sleep eight hours.",
+          "pt": "Eu durmo oito horas."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["rest", "nap"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "School",
+        "pt": ["Escola"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "meaning": "Instituição de ensino",
+      "pronunciation": "/skuːl/",
+      "exampleWords": [
+        {
+          "en": "I go to school.",
+          "pt": "Eu vou para a escola."
+        }
+      ],
+      "imageUrl": ["https://placehold.co/100x100/green/white?text=School"],
+      "relatedWords": ["education", "class"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Work",
+        "pt": ["Trabalhar"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "verb",
+      "meaning": "Realizar atividades profissionais",
+      "pronunciation": "/wɜːrk/",
+      "exampleWords": [
+        {
+          "en": "I work every day.",
+          "pt": "Eu trabalho todos os dias."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["job", "labor"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Friend",
+        "pt": ["Amigo", "Amiga"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "meaning": "Pessoa com vínculo de amizade",
+      "pronunciation": "/frend/",
+      "exampleWords": [
+        {
+          "en": "He is my friend.",
+          "pt": "Ele é meu amigo."
+        }
+      ],
+      "imageUrl": ["https://placehold.co/100x100/purple/white?text=Friend"],
+      "relatedWords": ["buddy", "companion"]
+    }
+  },
+
+  {
+    "identification": {
+      "name": {
+        "en": "Love",
+        "pt": ["Amor"]
+      },
+      "abbreviation": {
+        "en": "",
+        "pt": ""
+      }
+    },
+    "data": {
+      "classification": "noun",
+      "meaning": "Sentimento profundo de afeição",
+      "pronunciation": "/lʌv/",
+      "exampleWords": [
+        {
+          "en": "Love is important.",
+          "pt": "O amor é importante."
+        }
+      ],
+      "imageUrl": [""],
+      "relatedWords": ["affection", "care"]
     }
   }
 ]

@@ -123,7 +123,7 @@ function Word({ word: propWord }) {
                     <p className='text-3xl'>Corresponência visual:</p>
                     <div className='text-(--black-transparent) flex gap-5'>
                         {word.data.imageUrl.map((val, i) => (
-                            <p key={i}>{val}</p>
+                            <img key={i} src={val} alt={`Imagem para ${word.data.word}`} />
                         ))}
                     </div>
                 </div>

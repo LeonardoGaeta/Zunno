@@ -92,6 +92,7 @@ function Word({ word: propWord }) {
                                               onClick={() => toggleTranslation(i)}
                                               className={`
                                                 bg-(--tertiary) text-(--secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
+                                                hover:scale-110
                                                 transition-all duration-300 ease-in-out
                                                 ${showTranslation[i] ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}
                                               `}

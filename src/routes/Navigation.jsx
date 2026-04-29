@@ -15,50 +15,40 @@ function Navigation() {
     return(
         <BrowserRouter>
             <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <Template>
+                <Route element={<Template />}>
+                    <Route
+                        path="/"
+                        element={
                             <SearchPage />
-                        </Template>
-                    } />
-                <Route
-                    path="/glossary"
-                    element={
-                        <Template>
+                        } />
+                    <Route
+                        path="/glossary"
+                        element={
                             <GlossaryPage />
-                        </Template>
-                    } />
-                <Route
-                    path="/info"
-                    element={
-                        <Template>
+                        } />
+                    <Route
+                        path="/info"
+                        element={
                             <InfoPage />
-                        </Template>
-                    } />
-                <Route
-                    path="/translate"
-                    element={
-                        <Template>
+                        } />
+                    <Route
+                        path="/translate"
+                        element={
                             <TranslatePage />
-                        </Template>
-                    } />
-                <Route
-                    path="/configuration"
-                    element={
-                        <Template>
+                        } />
+                    <Route
+                        path="/configuration"
+                        element={
                             <ConfigPage />
-                        </Template>
-                    } />
-                <Route
-                    path="/word/:wordName"
-                    element={
-                        <Template>
+                        } />
+                    <Route
+                        path="/word/:wordName"
+                        element={
                             <SubContent>
                                 <Word />
                             </SubContent>
-                        </Template>
-                    } />
+                        } />
+                </Route>
             </Routes>
         </BrowserRouter>
     );

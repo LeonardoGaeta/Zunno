@@ -1,30 +1,34 @@
-import { useEffect, useState } from "react";
-
 import ArrowIcon from "@assets/images/Vetor - Seta.svg?react";
 import ClockIcon from "@assets/images/Vetor - Relógio.svg?react";
+import useSearchHistory from '@hooks/useSearchHistory';
+import { useNavigate } from 'react-router-dom';
 
 
 function History() {
-    const [history, setHistory] = useState(() => {
-        const stored = localStorage.getItem("searchHistory");
-        return stored ? JSON.parse(stored) : [];
-    });
+    const { history, addToHistory } = useSearchHistory();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        localStorage.setItem("searchHistory", JSON.stringify(history));
-    }, [history]);
-
+    const goToWord = (wordEn) => {
+        navigate(`/word/${wordEn.toLowerCase()}`);
+        addToHistory(wordEn);
+    }
 
     return (
         <div className="relative w-full p-3 rounded-2xl">
             <div className="relative z-0 flex flex-col">
                 { (history && history.length > 0) 
                 ? history.map((word, index) => (
-                    <div key={word} className="relative py-3">
-                        <div className="flex items-center gap-4 relative">
-                            <ClockIcon className="text-(--black-transparent) w-8 h-8" />
-                            <p className="text-(--black-transparent)">{word}</p>
-                            <ArrowIcon className="text-(--black-transparent) absolute right-0 w-8 h-8" />
+                    <div 
+                        key={word}
+                        className="relative py-3 cursor-pointer hover:scale-101 transition-transform bg-(--extra-2) rounded-2xl"
+                        onClick={() => goToWord(word)}
+                    >
+                        <div className="flex items-center justify-between p-4">
+                            <div className="flex gap-4">
+                                <ClockIcon className="text-(--black-transparent) w-8 h-8" />
+                                <p className="text-(--black-transparent)">{word}</p>
+                            </div>
+                            <ArrowIcon className="text-(--black-transparent) w-8 h-8" />
                         </div>
 
                         {index !== history.length - 1 && (
@@ -38,7 +42,6 @@ function History() {
                     </div>
                 ) }
             </div>
-            <div className="bg-(--extra-2) absolute inset-0 z-10 pointer-events-none rounded-2xl" />
         </div>
     )
 }

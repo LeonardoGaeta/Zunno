@@ -2,7 +2,7 @@ import SearchIcon from '@assets/images/footerBtns/Vetor - Pesquisar.svg?react'
 import { useNavigate } from 'react-router-dom';
 import { useWords } from '@contexts/WordsContext';
 import { useEffect, useState } from 'react';
-
+import useSearchHistory from '@hooks/useSearchHistory';
 
 function SearchBar() {
     const [query, setQuery] = useState("");
@@ -11,6 +11,7 @@ function SearchBar() {
     const [visible, setVisible] = useState(false);
     const { data } = useWords();
     const navigate = useNavigate();
+    const { addToHistory } = useSearchHistory();
 
     useEffect(() => {
         const searchLower = query.toLowerCase();
@@ -46,6 +47,7 @@ function SearchBar() {
         navigate(`/word/${wordEn.toLowerCase()}`);
         setQuery("");
         setSuggestion([]);
+        addToHistory(wordEn);
     }
 
     return (

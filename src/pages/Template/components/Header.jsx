@@ -1,5 +1,5 @@
 import ArrowIcon from '@assets/images/Vetor - Seta.svg?react';
-import imageUrl from '@assets/images/generic-logo-140952.png';
+import Logo from '@assets/images/logo.svg?react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function Header({ returnable }) {
 
             {/* Logo / Tenho que ajustar ela ainda */}
             <div className="flex justify-center items-center">
-                <img className="h-20 w-auto" src={imageUrl} alt="Logo" />
+                <Logo className="h-20 w-auto text-(--text-topper)" />
             </div>
         </div>
     );

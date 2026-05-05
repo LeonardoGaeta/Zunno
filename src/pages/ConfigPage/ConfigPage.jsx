@@ -143,3 +143,7 @@ const LanguageSection = ({ title, langKey, voices, data, onChange }) => {
 };
 
 export default ConfigPage;
+
+
+
+// Botão para mudar tema e apagar histórico.

@@ -12,7 +12,7 @@ import { useWords } from "@contexts/WordsContext";
 
 function Word({ word: propWord }) {
     const { wordName } = useParams();
-    const { data }= useWords();
+    const { sortedData }= useWords();
 
     const [showTranslation, setShowTranslation] = useState({});
 
@@ -25,7 +25,7 @@ function Word({ word: propWord }) {
         }));
     }
 
-    const word = propWord || data.find(
+    const word = propWord || sortedData.find(
         w => w.identification.name.en.toLowerCase() === wordName?.toLocaleLowerCase()
     );
 

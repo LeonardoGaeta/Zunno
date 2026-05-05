@@ -10,7 +10,7 @@ function Content({ children }) {
     }, [children, handleScroll]);
 
     return(
-        <div className="relative flex-1 min-h-0 bg-(--primary) rounded-2xl shadow-custom-b flex justify-center mx-4 my-5 overflow-hidden">
+        <div className="relative flex-1 min-h-0 bg-(--primary) rounded-2xl shadow-custom-b flex justify-center mx-4 my-5 overflow-hidden z-0">
             <div className={`fade-top pointer-events-none transition-opacity duration-300 ${shadows.top ? 'opacity-100' : 'opacity-0'}`} />
             <div className={`fade-bottom pointer-events-none transition-opacity duration-300 ${shadows.bottom    ? 'opacity-100' : 'opacity-0'}`} />
             

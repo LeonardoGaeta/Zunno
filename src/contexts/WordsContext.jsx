@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useMemo } from "react";
 
 const WordsContext = createContext();
 
@@ -28,8 +28,18 @@ function WordsProvider({ children }) {
             .catch((error) => console.error('Erro ao carregar JSON:', error));
     }, []);
 
+    const sortedDataMemo = useMemo(() => {
+        if (!data || data.length === 0) return [];
+
+        return [...data].sort((a, b) => {
+            const nameA = a.identification.name.en.toLowerCase();
+            const nameB = b.identification.name.en.toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
+    }, [data]);
+
     return (
-        <WordsContext.Provider value={{ data, today }}>
+        <WordsContext.Provider value={{ sortedData: sortedDataMemo, today }}>
             {children}
         </WordsContext.Provider>
     );
@@ -63,4 +73,4 @@ const pickDailyWord = (words, date) => {
 
 const useWords = () => useContext(WordsContext);
 
-export { WordsProvider, useWords, pickDailyWord }   
+export { WordsProvider, useWords, pickDailyWord }

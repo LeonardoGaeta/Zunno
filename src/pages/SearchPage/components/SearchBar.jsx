@@ -9,7 +9,7 @@ function SearchBar() {
     const [suggestion, setSuggestion] = useState([]);
     const [isClosing, setIsClosing] = useState(false);
     const [visible, setVisible] = useState(false);
-    const { data } = useWords();
+    const { sortedData } = useWords();
     const navigate = useNavigate();
     const { addToHistory } = useSearchHistory();
 
@@ -17,7 +17,7 @@ function SearchBar() {
         const searchLower = query.toLowerCase();
 
         if (query.trim().length > 0) {
-            const filtered = data.filter((item) => {
+            const filtered = sortedData.filter((item) => {
                 const nameEn = item.identification.name.en.toLowerCase();
                 const namePt = item.identification.name.pt.some(
                     p => p.toLowerCase().includes(searchLower)
@@ -41,7 +41,7 @@ function SearchBar() {
 
             return () => clearTimeout(timer);
         }
-    }, [query, data]);
+    }, [query, sortedData]);
 
     const goToWord = (wordEn) => {
         navigate(`/word/${wordEn.toLowerCase()}`);

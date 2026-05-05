@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Template from "@pages/Template/Template";
+import Template from "@template/Template";
 
 import InfoPage from "@pages/InfoPage/InfoPage";
 import SearchPage from "@pages/SearchPage/SearchPage";
@@ -9,7 +9,7 @@ import TranslatePage from "@pages/TranslatePage/TranslatePage";
 import ConfigPage from "@pages/ConfigPage/ConfigPage";
 
 import Word from "@pages/Components/Word";
-import SubContent from "@pages/Template/components/SubContent";
+import SubContent from "@template/components/SubContent";
 
 function Navigation() {
     return(

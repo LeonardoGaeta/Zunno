@@ -1,15 +1,18 @@
 import SubContent from "@template/components/SubContent";
 import { useWords } from '@contexts/WordsContext';
-import { useState } from "react";
 import GoIcon from "@assets/images/Vetor - Ir.svg?react"
 import { useNavigate } from "react-router-dom";
+// import useSearchHistory from "@hooks/useSearchHistory";
 
 function GlossaryPage() {
+    // const { addToHistory } = useSearchHistory();
+
     const { sortedData } = useWords();
     const navigate = useNavigate();
 
     const goToWord = (wordEn) => {
         navigate(`/word/${wordEn.toLowerCase()}`);
+        // addToHistory(wordEn);
     }
 
     return (
@@ -28,19 +31,22 @@ function GlossaryPage() {
                         const firstLetter = currentWord[0].toUpperCase();
 
                         const isNewLetter = i === 0 || firstLetter !== sortedData[i - 1].identification.name.en[0].toUpperCase();
+                        const nextIsNewLetter = i < sortedData.length-1 
+                            && firstLetter !== sortedData[i + 1].identification.name.en[0].toUpperCase();
 
                         return (
                             <div
                               className="flex flex-col w-full"
+                              key={i}
                             >
                                 {isNewLetter && (
                                     <div className={`text-center text-4xl text-(--secondary) py-4 ${i === 0 ? "shadow-custom-b" : "shadow-custom-sb rounded-t-2xl"}`}>
                                         {firstLetter}
                                     </div>
                                 )}
-                                <div className="shadow-custom-b py-10 px-10">
+                                <div className={`${!nextIsNewLetter ? "shadow-custom-b" : ""}`}>
                                     <div
-                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform"
+                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform p-10"
                                       onClick={() => goToWord(currentWord)}
                                     >
                                         <div>

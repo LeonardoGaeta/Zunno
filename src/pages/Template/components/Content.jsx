@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+
 import useScrollShadows from "@hooks/useScrollShadows";
 
 function Content({ children }) {

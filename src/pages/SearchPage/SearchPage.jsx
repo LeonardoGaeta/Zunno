@@ -1,6 +1,8 @@
 import SearchBar from "./components/SearchBar";
-import SubContent from "@template/components/SubContent";
 import History from "./components/History";
+
+import SubContent from "@template/components/SubContent";
+
 import Word from "@pages/Components/Word";
 
 import { useWords, pickDailyWord } from "@contexts/WordsContext";

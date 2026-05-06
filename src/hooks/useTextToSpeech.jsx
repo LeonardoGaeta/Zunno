@@ -1,5 +1,7 @@
 import EasySpeech from "easy-speech";
+
 import { useCallback, useEffect, useState } from "react";
+
 import ttsService from "@services/ttsService";
 
 

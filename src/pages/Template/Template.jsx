@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Content from "./components/Content";
 import Footer from "./components/Footer/Footer";
 
-import { WordsProvider } from "../../contexts/WordsContext"
+import { WordsProvider } from "@contexts/WordsContext"
 
 function Template() {
     return (

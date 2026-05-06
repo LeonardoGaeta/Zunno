@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
+
 import ArrowIcon from "@assets/images/Vetor - Seta.svg?react";
 import ClockIcon from "@assets/images/Vetor - Relógio.svg?react";
+
 import useSearchHistory from '@hooks/useSearchHistory';
-import { useNavigate } from 'react-router-dom';
 
 
 function History() {

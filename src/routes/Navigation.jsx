@@ -7,8 +7,8 @@ import SearchPage from "@pages/SearchPage/SearchPage";
 import GlossaryPage from "@pages/GlossaryPage/GlossaryPage";
 import TranslatePage from "@pages/TranslatePage/TranslatePage";
 import ConfigPage from "@pages/ConfigPage/ConfigPage";
-
 import Word from "@pages/Components/Word";
+
 import SubContent from "@template/components/SubContent";
 
 function Navigation() {

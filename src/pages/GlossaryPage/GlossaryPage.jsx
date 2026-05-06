@@ -1,7 +1,10 @@
-import SubContent from "@template/components/SubContent";
-import { useWords } from '@contexts/WordsContext';
-import GoIcon from "@assets/images/Vetor - Ir.svg?react"
 import { useNavigate } from "react-router-dom";
+
+import SubContent from "@template/components/SubContent";
+
+import GoIcon from "@assets/images/Vetor - Ir.svg?react"
+
+import { useWords } from '@contexts/WordsContext';
 // import useSearchHistory from "@hooks/useSearchHistory";
 
 function GlossaryPage() {

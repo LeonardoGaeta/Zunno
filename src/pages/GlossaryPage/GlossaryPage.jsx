@@ -2,11 +2,15 @@ import SubContent from "@template/components/SubContent";
 import { useWords } from '@contexts/WordsContext';
 import { useState } from "react";
 import GoIcon from "@assets/images/Vetor - Ir.svg?react"
+import { useNavigate } from "react-router-dom";
 
 function GlossaryPage() {
     const { sortedData } = useWords();
+    const navigate = useNavigate();
 
-    console.log(sortedData);
+    const goToWord = (wordEn) => {
+        navigate(`/word/${wordEn.toLowerCase()}`);
+    }
 
     return (
         <SubContent>
@@ -26,21 +30,28 @@ function GlossaryPage() {
                         const isNewLetter = i === 0 || firstLetter !== sortedData[i - 1].identification.name.en[0].toUpperCase();
 
                         return (
-                            <div className="flex flex-col w-full">
+                            <div
+                              className="flex flex-col w-full"
+                            >
                                 {isNewLetter && (
-                                    <div className="text-center text-4xl text-(--secondary) py-4 shadow-custom-b">
+                                    <div className={`text-center text-4xl text-(--secondary) py-4 ${i === 0 ? "shadow-custom-b" : "shadow-custom-sb rounded-t-2xl"}`}>
                                         {firstLetter}
                                     </div>
                                 )}
-                                <div className="shadow-custom-b py-10 px-10 flex items-center justify-between">
-                                    <div>
-                                        <div className="flex items-end gap-2">
-                                            <p className="text-4xl border-0 text-(--text-topper)">{val.identification.name.en}</p>
-                                            <p className="text-(--black-transparent) capitalize">({val.data.classification})</p>
+                                <div className="shadow-custom-b py-10 px-10">
+                                    <div
+                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform"
+                                      onClick={() => goToWord(currentWord)}
+                                    >
+                                        <div>
+                                            <div className="flex items-end gap-2">
+                                                <p className="text-4xl border-0 text-(--text-topper)">{val.identification.name.en}</p>
+                                                <p className="text-(--black-transparent) capitalize">({val.data.classification})</p>
+                                            </div>
+                                            <p className="text-(--black-transparent)">{val.identification.name.pt[0]}</p>
                                         </div>
-                                        <p className="text-(--black-transparent)">{val.identification.name.pt[0]}</p>
+                                        <GoIcon className="text-(--black-transparent)" />
                                     </div>
-                                    <GoIcon className="text-(--black-transparent)" />
                                 </div>
                             </div>
                         );

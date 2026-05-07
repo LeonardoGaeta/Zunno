@@ -19,7 +19,7 @@ function Content({ children }) {
             ref={scrollRef}
             onScroll={handleScroll}
             className={`
-              relative
+              relative bananilsonwilson
               w-full max-w-4xl px-3 py-4
               overflow-y-auto no-scrollbar
               transition-all duration-200

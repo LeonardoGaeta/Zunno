@@ -5,6 +5,7 @@ function ScrollToTop() {
     const { pathname } = useLocation();
 
     useEffect(() => {
+        // BananilsonWilson fuck yeah
         const content = document.querySelector(".bananilsonwilson");
 
         content?.scrollTo(0, 0);

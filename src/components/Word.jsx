@@ -4,6 +4,7 @@ import SaveIcon from '@assets/images/Vetor - Salvar.svg?react';
 import Botao from './Button';
 
 import useTextToSpeech from '@hooks/useTextToSpeech';
+import useSavedWords from '@hooks/useSavedWords';
 
 import { useState } from 'react';
 
@@ -12,23 +13,24 @@ import { useWords } from "@contexts/WordsContext";
 
 function Word({ word: propWord }) {
     const { wordName } = useParams();
-    const { sortedData }= useWords();
+    const { sortedData } = useWords();
+    const { savedWordsSet, toggleWord } = useSavedWords();
 
     const [showTranslation, setShowTranslation] = useState({});
-
-    const { speak, voices, isReady: isSpeachReady, isSpeaking } = useTextToSpeech();
-
+    
+    const { speak, isReady: isSpeachReady, isSpeaking } = useTextToSpeech();
+    
     const toggleTranslation = (index) => {
         setShowTranslation((prev) => ({
             ...prev,
             [index]: !prev[index],
         }));
     }
-
+    
     const word = propWord || sortedData.find(
         w => w.identification.name.en.toLowerCase() === wordName?.toLocaleLowerCase()
     );
-
+    
     if (!word) return null;
 
     return(
@@ -44,9 +46,8 @@ function Word({ word: propWord }) {
                         <EarIcon className="w-8 h-8" />
                     </Botao>
                     <Botao 
-                      isReady={true} 
-                      isActive={false} 
-                      onClick={() => console.log(voices.filter(voice => voice.localService))}>
+                      isActive={savedWordsSet.has(word.identification.name.en.toLowerCase())} 
+                      onClick={() => toggleWord(word.identification.name.en)}>
                         <SaveIcon className="text-(--tertiary) w-8 h-8" />
                     </Botao>
                 </div>

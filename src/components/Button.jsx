@@ -1,6 +1,6 @@
 
 
-function Botao({ isReady, isActive, onClick, children }) {
+function Botao({ isReady = true, isActive, onClick, children }) {
     return(
         <button
           className={`${!isActive 

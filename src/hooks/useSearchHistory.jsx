@@ -6,6 +6,10 @@ function useSearchHistory() {
         return stored ? JSON.parse(stored) : [];
     });
 
+    useEffect(() => {
+        localStorage.setItem("searchHistory", JSON.stringify(history));
+    }, [history]);
+
     const addToHistory = (word) => {
         setHistory(prev => {
             const updated = [word, ...prev.filter(w => w !== word)].slice(0, 5);
@@ -16,10 +20,6 @@ function useSearchHistory() {
     const clearHistory = () => {
         setHistory([]);
     }
-
-    useEffect(() => {
-        localStorage.setItem("searchHistory", JSON.stringify(history));
-    }, [history]);
 
     return { history, addToHistory, clearHistory };
 }

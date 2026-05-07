@@ -3,7 +3,7 @@ import History from "./components/History";
 
 import SubContent from "@template/components/SubContent";
 
-import Word from "@pages/Components/Word";
+import Word from "@components/Word";
 
 import { useWords, pickDailyWord } from "@contexts/WordsContext";
 

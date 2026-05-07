@@ -5,7 +5,7 @@ import Template from "@template/Template";
 import SearchPage from "@pages/SearchPage/SearchPage";
 import GlossaryPage from "@pages/GlossaryPage/GlossaryPage";
 import ConfigPage from "@pages/ConfigPage/ConfigPage";
-import Word from "@pages/Components/Word";
+import Word from "@components/Word";
 
 import SubContent from "@template/components/SubContent";
 

@@ -34,6 +34,9 @@
   --extra-1: rgba(161, 178, 191, 1);
   --extra-2: rgba(118, 200, 147, 0.18);
   
+  --secondary-dark: rgb(31, 47, 59);
+  --tertiary-dark: rgba(118, 200, 147, 1);
+
   --bg: rgba(15, 23, 32, 1);
 
   --primary-transparent: rgba(34, 45, 56, 0.5);
@@ -43,6 +46,8 @@
   --text-topper: rgba(240, 244, 248, 1);
 
   --black-transparent: rgba(0, 0, 0, 0.7);
+  --gray-transparent: rgba(255, 255, 255, 0.5);
+
   --black-transparent-2: rgba(0, 0, 0, 0.4);
 
   --transparent: rgba(200, 200, 200, 0.2);

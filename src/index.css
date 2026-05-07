@@ -20,12 +20,36 @@
   --tertiary-transparent: rgba(118, 200, 147, 0.5);
 
   --text-topper: rgba(0, 0, 0, 1);
+  
   --black-transparent: rgba(0, 0, 0, 0.5);
   --black-transparent-2: rgba(0, 0, 0, 0.25);
+  
   --transparent: rgb(159, 159, 159, 0.5);
 }
 
-/* .dark {
+.dark {
+  --primary: rgba(34, 45, 56, 1);
+  --secondary: rgba(118, 200, 147, 1);
+  --tertiary: rgba(26, 55, 77, 1);
+  --extra-1: rgba(161, 178, 191, 1);
+  --extra-2: rgba(118, 200, 147, 0.18);
+  
+  --bg: rgba(15, 23, 32, 1);
+
+  --primary-transparent: rgba(34, 45, 56, 0.5);
+  --secondary-transparent: rgba(118, 200, 147, 0.5);
+  --tertiary-transparent: rgba(88, 166, 255, 0.5);
+
+  --text-topper: rgba(240, 244, 248, 1);
+
+  --black-transparent: rgba(0, 0, 0, 0.7);
+  --black-transparent-2: rgba(0, 0, 0, 0.4);
+
+  --transparent: rgba(200, 200, 200, 0.2);
+}
+
+/* * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2 ease-out;
 } */
 
 .shadow-custom-b {
@@ -63,6 +87,7 @@
 
 body {
   font-family: 'Alika Angular', sans-serif;
+  transition: all;
 }
 
 .no-scrollbar::-webkit-scrollbar {

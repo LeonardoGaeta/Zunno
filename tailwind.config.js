@@ -7,7 +7,11 @@ export default {
         './src/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            transitionProperty: {
+                'colors-shadow': 'background-color, border-color, color, fill, stroke, box-shadow',
+            },
+        },
     },
     plugins: [
         scrollbarHide

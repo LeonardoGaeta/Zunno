@@ -9,7 +9,7 @@ import { WordsProvider } from "@contexts/WordsContext"
 function Template() {
     return (
         <WordsProvider>
-            <div className="flex flex-col h-screen overflow-hidden text-2xl">
+            <div className="flex bg-(--bg) flex-col h-screen overflow-hidden text-2xl">
                 <Header />
                 <Content>
                     <Outlet />

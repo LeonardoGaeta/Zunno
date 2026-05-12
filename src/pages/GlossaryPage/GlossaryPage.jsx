@@ -83,12 +83,12 @@ function GlossaryPage() {
                                             <div>
                                                 <div className="flex items-end gap-2">
                                                     <p className="text-4xl border-0 text-(--text-topper)">{val.identification.name.en}</p>
-                                                    <p className="text-(--black-transparent) capitalize">({val.data.classification})</p>
+                                                    <p className="text-(--word-text-color) capitalize">({val.data.classification})</p>
                                                 </div>
-                                                <p className="text-(--black-transparent)">{val.identification.name.pt[0]}</p>
+                                                <p className="text-(--word-text-color)">{val.identification.name.pt[0]}</p>
                                             </div>
                                         </div>
-                                        <GoIcon className="text-(--black-transparent)" />
+                                        <GoIcon className="text-(--word-text-color)" />
                                     </div>
                                 </div>
                             </div>

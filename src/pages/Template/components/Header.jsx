@@ -38,7 +38,7 @@ function Header({ returnable }) {
               "
               onClick={() => navigate(-1)}
             >
-                <ArrowIcon className="w-10 h-10 color-(--primary) cursor-pointer -scale-x-100" />
+                <ArrowIcon className="w-10 h-10 text-(--text-topper) cursor-pointer -scale-x-100" />
             </div>}
 
             {/* Logo / Tenho que ajustar ela ainda */}

@@ -58,28 +58,28 @@ function Word({ word: propWord }) {
                 {/* Palavra traduzida */}
                 <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Tradução:</p>
-                    <p className='text-(--black-transparent) dark:text-(--gray-transparent)'>
+                    <p className='text-(--word-text-color)'>
                         {word.identification.name.pt.join(" • ")}
                     </p>
                 </div>
                 {/* Pronúncia */}
                 <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Pronúncia:</p>
-                    <p className='text-(--black-transparent) dark:text-(--gray-transparent)'>
+                    <p className='text-(--word-text-color)'>
                         {word.data.pronunciation}
                     </p>
                 </div>
                 {/* Significado */}
                 <div className='flex items-end gap-1 flex-wrap'>
                     <p className='text-3xl'>Significado:</p>
-                    <p className='text-(--black-transparent) dark:text-(--gray-transparent)'>
+                    <p className='text-(--word-text-color)'>
                         {word.data.meaning}
                     </p>
                 </div>
                 {/* Exemplo de frases */}
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Exemplo de frase:</p>
-                    <div className='text-(--black-transparent) dark:text-(--gray-transparent) ml-6 flex flex-col gap-5 flex-wrap'>
+                    <div className='text-(--word-text-color) ml-6 flex flex-col gap-5 flex-wrap'>
                         {word.data.exampleWords.map((val, i) => (
                             <div key={i}>
                                 {/* Frase em ingles */}
@@ -92,7 +92,7 @@ function Word({ word: propWord }) {
                                             <button
                                               onClick={() => toggleTranslation(i)}
                                               className={`
-                                                bg-(--tertiary) text-(--secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
+                                                bg-(--btn-translate-tertiary) text-(--btn-translate-secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
                                                 hover:scale-110
                                                 transition-all duration-300 ease-in-out
                                                 ${showTranslation[i] ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}
@@ -104,7 +104,7 @@ function Word({ word: propWord }) {
                                             {/* Tradução */}
                                             <p
                                             className={`
-                                                absolute top-0 left-0 text-(--black-transparent-2) dark:text-(--gray-transparent) text-xl
+                                                absolute top-0 left-0 text-(--word-text-color-2) text-xl
                                                 transition-all duration-300 ease-in-out
                                                 ${showTranslation[i] ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
                                             `}
@@ -122,7 +122,7 @@ function Word({ word: propWord }) {
                 {word.data.imageUrl[0] && (
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Corresponência visual:</p>
-                    <div className='text-(--black-transparent) dark:text-(--gray-transparent) flex gap-5'>
+                    <div className='text-(--word-text-color) flex gap-5'>
                         {word.data.imageUrl.map((val, i) => (
                             <img key={i} src={val} alt={`Imagem para ${word.data.word}`} />
                         ))}
@@ -132,7 +132,7 @@ function Word({ word: propWord }) {
                 {/* Palavras relacionadas */}
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Palavras relacionadas:</p>
-                    <div className='text-(--black-transparent) dark:text-(--gray-transparent)'>
+                    <div className='text-(--word-text-color)'>
                         {word.data.relatedWords.map((val, i) => (
                             <p key={i}>{val}</p>
                         ))}

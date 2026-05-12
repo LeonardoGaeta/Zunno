@@ -25,6 +25,16 @@
   --black-transparent-2: rgba(0, 0, 0, 0.25);
   
   --transparent: rgb(159, 159, 159, 0.5);
+  
+  /* Extra */
+  --word-text-color: var(--black-transparent);
+  --word-text-color-2: var(--black-transparent-2);
+
+  --icon-btn-secondary: var(--secondary);
+  --icon-btn-tertiary: var(--tertiary);
+
+  --btn-translate-secondary: var(--secondary);
+  --btn-translate-tertiary: var(--tertiary);
 }
 
 .dark {
@@ -44,18 +54,22 @@
   --tertiary-transparent: rgba(88, 166, 255, 0.5);
 
   --text-topper: rgba(240, 244, 248, 1);
-
+  
   --black-transparent: rgba(0, 0, 0, 0.7);
-  --gray-transparent: rgba(255, 255, 255, 0.5);
-
   --black-transparent-2: rgba(0, 0, 0, 0.4);
-
+  
   --transparent: rgba(200, 200, 200, 0.2);
-}
+  
+  /* Extra */
+  --word-text-color: rgba(255, 255, 255, 0.5);
+  --word-text-color-2: rgba(255, 255, 255, 0.25);
+  
+  --icon-btn-secondary: var(--primary);
+  --icon-btn-tertiary: var(--secondary);
 
-/* * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2 ease-out;
-} */
+  --btn-translate-secondary: var(--primary);
+  --btn-translate-tertiary: var(--secondary);
+}
 
 .shadow-custom-b {
   box-shadow: 0px 4px 4px 0px var(--black-transparent-2);

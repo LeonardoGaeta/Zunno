@@ -8,7 +8,7 @@ function Footer() {
     return (
         <div className="
             w-full min-h-24 flex flex-nowrap items-center justify-around 
-            px-4 sticky bottom-0 shadow-custom-s bg-(--secondary) shrink-0 banana
+            px-4 sticky bottom-0 shadow-custom-s bg-(--icon-btn-secondary) shrink-0 banana
         ">
 
             <Botao rota={'/glossary'}>

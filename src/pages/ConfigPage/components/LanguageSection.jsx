@@ -1,60 +1,105 @@
-
+import { useState, useRef, useEffect } from "react";
 
 function LanguageSection ({ langKey, voices, data, onChange }) {
+    const [open, setOpen] = useState(false);
+    const ref = useRef(null);
+
+    const selectedVoice = voices.find(v => v.voiceURI === data.voiceURI);
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     return (
         <div className="p-6 rounded-2xl my-4 space-y-6">
             <div className="space-y-2">
                 <label className="text-2xl font-semibold text-(--secondary)">Modelo de Voz</label>
-                <div className="relative">
-                    <select 
+                <div className="relative" ref={ref}>
+                    <button
+                      type="button"
+                      onClick={() => setOpen(v => !v)}
                       className="
-                        w-full p-3 rounded-2xl
+                         w-full p-3 rounded-2xl
+                         flex items-center justify-between gap-6
 
-                        bg-(--extra-2)
-                        text-(--secondary)
+                         text-(--secondary)
+                         bg-(--extra-2)
 
-                        border border-(--secondary-transparent)
+                         border border-(--secondary-transparent)
 
-                        shadow-custom-b
+                         shadow-custom-b
 
-                        outline-none
-                        appearance-none
-                        cursor-pointer
+                         transition-all
 
-                        transition-all
+                         hover:bg-(--secondary-transparent)
+                         hover:border-(--secondary)
 
-                        hover:bg-(--secondary-transparent)
-                        hover:border-(--secondary)
-
-                        focus:ring-5 focus:ring-(--secondary-transparent)
-                        focus:border-(--secondary)
+                         focus:ring-4 focus:ring-(--secondary-transparent)
+                         focus:outline-none
+                         cursor-pointer
                       "
-                      value={data.voiceURI}
-                      onChange={(e) => onChange(langKey, 'voiceURI', e.target.value)}
                     >
-                    <option
-                      value=""
-                      className="
-                      "
-                    >Padrão do Sistema</option>
-                    {voices.map(v => (
-                        <option
-                          key={v.voiceURI}
-                          value={v.voiceURI}
+                        <span>
+                            {selectedVoice ? selectedVoice.name : "Padrão do Sistema"}
+                        </span>
+                        <span className="">
+                            ▾
+                        </span>
+                    </button>
+                    {open && (
+                        <div
                           className="
+                            absolute z-50 mt-2 w-full
+
+                            rounded-2xl
+                            bg-(--bg)
+                            text-(--secondary)
+
+                            border border-(--secondary-transparent)
+
+                            shadow-custom-sb
+
+                            max-h-60 overflow-auto
                           "
                         >
-                        {v.name}
-                        </option>
-                    ))}
-                    </select>
-                    <span className="
-                      pointer-events-none
-                      absolute right-4 top-1/2 -translate-y-1/2
-                      text-(--secondary)
-                    ">
-                        ▾
-                    </span>
+                            <div
+                              onClick={() =>{
+                                onChange(langKey, "voiceURI", "");
+                                setOpen(false);
+                              }}
+                              className="
+                                p-3 cursor-pointer
+                                hover:bg-(--secondary-transparent)
+                                transition
+                              "
+                            >
+                                Padrão do Sistema
+                            </div>
+                            {voices.map(v => (
+                                <div
+                                  key={v.voiceURI}
+                                  onClick={() => {
+                                    onChange(langKey, "voiceURI", v.voiceURI);
+                                    setOpen(false);
+                                  }}
+                                  className="
+                                    p-3 cursor-pointer
+                                    hover:bg-(--secondary-transparent)
+                                    transition
+                                  "
+                                >
+                                    {v.name}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
 

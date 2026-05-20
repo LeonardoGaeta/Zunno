@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import LanguageSection from './components/LanguageSection';
 import ButtonAction from './components/Button';
@@ -12,10 +12,14 @@ import ttsService from '@services/ttsService';
 function ConfigPage() {
     const { voices, isReady, refreshProfiles, profiles } = useTextToSpeech();
     
-    const [tempProfiles, setTempProfiles] = useState(profiles);
+    const [tempProfiles, setTempProfiles] = useState({});
 
-    const ptVoices = voices.filter(v => v.lang.includes('pt'));
-    const enVoices = voices.filter(v => v.lang.includes('en'));
+    useEffect(() => {
+        setTempProfiles(profiles);
+    }, [profiles])
+
+    // const ptVoices = (voices || []).filter(v => v.lang.includes('pt'));
+    const enVoices = (voices || []).filter(v => v.lang.includes('en'));
 
     const handleChange = (lang, field, value) => {
         setTempProfiles(prev => ({
@@ -25,7 +29,7 @@ function ConfigPage() {
     };
 
     const handleSaveAll = () => {
-        ttsService.saveProfile('pt-BR', tempProfiles['pt-BR']);
+        // ttsService.saveProfile('pt-BR', tempProfiles['pt-BR']);
         ttsService.saveProfile('en-US', tempProfiles['en-US']);
         
         refreshProfiles();

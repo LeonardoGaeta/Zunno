@@ -35,6 +35,8 @@
 
   --btn-translate-secondary: var(--secondary);
   --btn-translate-tertiary: var(--tertiary);
+
+  --option-select: var()
 }
 
 .dark {

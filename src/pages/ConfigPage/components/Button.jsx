@@ -13,6 +13,9 @@ function ButtonAction({ background, handle, children: texto }) {
             ${backgrounds[background]} text-(--word-text-color)
             py-2 px-4 rounded-2xl
             shadow-custom-b
+            transition-all
+
+            hover:scale-110 hover:text-(--text-topper)
           `}
 
           onClick={handle}

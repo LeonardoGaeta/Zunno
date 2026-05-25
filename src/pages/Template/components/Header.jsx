@@ -49,7 +49,7 @@ function Header({ returnable }) {
               className='absolute right-10 text-(--text-topper) font-bold text-lg cursor-pointer transition-all duration-150'
               onClick={() => changeThemeIcon()}
             >  
-                {darkThemeActivated ? <SunIcon className='w-8 h-8 text-(--text-topper)' /> : <MoonIcon className='w-8 h-8 text-(--text-topper)' />}
+                {darkThemeActivated ? <SunIcon className='w-8 h-8 text-(--text-topper) hover:scale-110 transition-all' /> : <MoonIcon className='w-8 h-8 text-(--text-topper) hover:scale-110 transition-all' />}
             </div>
         </div>
     );

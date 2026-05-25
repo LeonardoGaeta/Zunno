@@ -17,6 +17,38 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    // Classe base reutilizável para os sliders ficarem bonitões e consistentes nos navegadores
+    const sliderClassName = `
+        w-full h-2 rounded-lg appearance-none cursor-pointer
+        bg-(--secondary-transparent) 
+        accent-(--tertiary)
+        
+        [&::-webkit-slider-thumb]:appearance-none
+        [&::-webkit-slider-thumb]:w-5
+        [&::-webkit-slider-thumb]:h-5
+        [&::-webkit-slider-thumb]:rounded-full
+        [&::-webkit-slider-thumb]:bg-(--secondary)
+        hover:[&::-webkit-slider-thumb]:bg-(--secondary-light)
+        hover:[&::-webkit-slider-thumb]:scale-110
+
+        [&::-webkit-slider-thumb]:shadow-md
+        [&::-webkit-slider-thumb]:transition-all
+        [&::-webkit-slider-thumb]:hover:scale-115
+        [&::-webkit-slider-thumb]:active:scale-95
+
+        [&::-moz-range-thumb]:w-5
+        [&::-moz-range-thumb]:h-5
+        [&::-moz-range-thumb]:border-0
+        [&::-moz-range-thumb]:rounded-full
+        [&::-moz-range-thumb]:bg-(--tertiary)
+        [&::-moz-range-thumb]:shadow-md
+        [&::-moz-range-thumb]:transition-all
+        [&::-moz-range-thumb]:hover:scale-115
+        [&::-moz-range-thumb]:active:scale-95
+        
+        focus:outline-none
+    `;
+
     return (
         <div className="p-6 rounded-2xl my-4 space-y-6">
             <div className="space-y-2">
@@ -49,7 +81,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
                         <span>
                             {selectedVoice ? selectedVoice.name : "Padrão do Sistema"}
                         </span>
-                        <span className="">
+                        <span>
                             ▾
                         </span>
                     </button>
@@ -103,30 +135,38 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
                 </div>
             </div>
 
-            <div>
-                <div className="flex justify-between text-sm">
-                    <span className="font-semibold text-gray-600">Velocidade (Rate)</span>
-                    <span className="text-blue-600 font-bold">{data.rate}x</span>
+            <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                    <span className="text-xl font-medium text-(--secondary)">Velocidade (Rate)</span>
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
+                        {data.rate}x
+                    </span>
                 </div>
-                <input 
-                    type="range" min="0.5" max="2" step="0.1"
-                    className="w-full accent-blue-600"
-                    value={data.rate}
-                    onChange={(e) => onChange(langKey, 'rate', parseFloat(e.target.value))}
-                />
+                <div className="relative flex items-center">
+                    <input 
+                        type="range" min="0.5" max="2" step="0.1"
+                        className={sliderClassName}
+                        value={data.rate}
+                        onChange={(e) => onChange(langKey, 'rate', parseFloat(e.target.value))}
+                    />
+                </div>
             </div>
 
-            <div>
-                <div className="flex justify-between text-sm">
-                    <span className="font-semibold text-gray-600">Tom (Pitch)</span>
-                    <span className="text-blue-600 font-bold">{data.pitch}</span>
+            <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                    <span className="text-xl font-medium text-(--secondary)">Tom (Pitch)</span>
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
+                        {data.pitch}
+                    </span>
                 </div>
-                <input 
-                    type="range" min="0.5" max="1.5" step="0.1"
-                    className="w-full accent-blue-600"
-                    value={data.pitch}
-                    onChange={(e) => onChange(langKey, 'pitch', parseFloat(e.target.value))}
-                />
+                <div className="relative flex items-center">
+                    <input 
+                        type="range" min="0.5" max="1.5" step="0.1"
+                        className={sliderClassName}
+                        value={data.pitch}
+                        onChange={(e) => onChange(langKey, 'pitch', parseFloat(e.target.value))}
+                    />
+                </div>
             </div>
         </div>
     );

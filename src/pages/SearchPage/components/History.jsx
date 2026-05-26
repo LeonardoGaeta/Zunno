@@ -22,7 +22,7 @@ function History() {
                 ? history.map((word, index) => (
                     <div 
                         key={word}
-                        className="relative py-3 cursor-pointer hover:scale-101 transition-transform "
+                        className="relative py-3 cursor-pointer hover:scale-101 transition-transform select-none"
                         onClick={() => goToWord(word)}
                     >
                         <div className="flex items-center justify-between">

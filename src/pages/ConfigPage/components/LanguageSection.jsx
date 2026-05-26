@@ -53,7 +53,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
         <div className="p-6 rounded-2xl my-4 space-y-6">
             <div className="space-y-2">
                 <label className="text-2xl font-semibold text-(--secondary)">Modelo de Voz</label>
-                <div className="relative" ref={ref}>
+                <div className="relative select-none" ref={ref}>
                     <button
                       type="button"
                       onClick={() => setOpen(v => !v)}
@@ -138,7 +138,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
                     <span className="text-xl font-medium text-(--secondary)">Velocidade (Rate)</span>
-                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs select-none">
                         {data.rate}x
                     </span>
                 </div>
@@ -155,7 +155,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
                     <span className="text-xl font-medium text-(--secondary)">Tom (Pitch)</span>
-                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs select-none">
                         {data.pitch}
                     </span>
                 </div>

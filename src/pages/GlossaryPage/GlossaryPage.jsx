@@ -73,7 +73,7 @@ function GlossaryPage() {
                                 )}
                                 <div className={`${!nextIsNewLetter && i < filteredData.length - 1 ? "shadow-custom-b" : ""}`}>
                                     <div
-                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform p-10"
+                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform p-10 select-none"
                                       onClick={() => goToWord(currentWord)}
                                     >
                                         <div className="flex gap-6">

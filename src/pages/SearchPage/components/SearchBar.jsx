@@ -58,7 +58,7 @@ function SearchBar() {
                     <input
                         type="text"
                         placeholder="Pesquisar"
-                        className="placeholder-(--black-transparent) w-full focus:outline-none flex-1 text-[17px]"
+                        className="placeholder-(--black-transparent) w-full focus:outline-none flex-1 text-[17px] select-none"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter'
@@ -82,7 +82,7 @@ function SearchBar() {
                             <li
                                 key={i}
                                 onClick={() => goToWord(item.identification.name.en)}
-                                className="pl-12 py-4 hover:bg-(--primary) cursor-pointer flex justify-start items-end gap-2 border-b last:border-none border-(--bg)"
+                                className="pl-12 py-4 hover:bg-(--primary) cursor-pointer flex justify-start items-end gap-2 border-b last:border-none border-(--bg) select-none"
                             >
                                 <span className="text-2xl text-(--black-transparent)">
                                     {item.identification.name.en}
@@ -93,7 +93,7 @@ function SearchBar() {
                             </li>
                         ))
                     ) : (
-                        <li className="py-4 text-center text-(--black-transparent)">
+                        <li className="py-4 text-center text-(--black-transparent) select-none">
                             Nenhum resultado encontrado
                         </li>
                     )}

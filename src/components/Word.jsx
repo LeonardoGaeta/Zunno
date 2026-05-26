@@ -94,7 +94,7 @@ function Word({ word: propWord }) {
                                               className={`
                                                 bg-(--btn-translate-tertiary) text-(--btn-translate-secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
                                                 hover:scale-110
-                                                transition-all duration-300 ease-in-out
+                                                transition-all duration-300 ease-in-out select-none
                                                 ${showTranslation[i] ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}
                                               `}
                                             >
@@ -122,7 +122,7 @@ function Word({ word: propWord }) {
                 {word.data.imageUrl[0] && (
                 <div className='flex flex-col gap-1'>
                     <p className='text-3xl'>Corresponência visual:</p>
-                    <div className='text-(--word-text-color) flex gap-5'>
+                    <div className='text-(--word-text-color) flex gap-5 select-none'>
                         {word.data.imageUrl.map((val, i) => (
                             <img key={i} src={val} alt={`Imagem para ${word.data.word}`} />
                         ))}

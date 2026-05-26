@@ -24,15 +24,19 @@ function Header({ returnable }) {
         setDarkThemeActivated(!darkThemeActivated);
     }
 
+    const goToSearchPage = () => {
+        navigate('/');
+    }
+
     return (
         <div
             className="w-full h-24 flex items-center justify-center shadow-custom-b relative bg-(--bg) shrink-0 banana"
         >
-            {/* Seta de voltar */}
+            {/* Back arrow */}
             {showButton && 
             <div
               className="absolute left-10
-                transition-all duration-150
+                transition-all
                 hover:scale-110
                 active:scale-100
               "
@@ -41,15 +45,25 @@ function Header({ returnable }) {
                 <ArrowIcon className="w-10 h-10 text-(--text-topper) cursor-pointer -scale-x-100" />
             </div>}
 
-            {/* Logo / Tenho que ajustar ela ainda */}
-            <div className="flex justify-center items-center">
-                <Logo className="h-20 w-auto text-(--text-topper)" />
+            {/* Logo */}
+            <div
+              className="flex justify-center items-center
+                transition-all
+                hover:scale-110
+                active:scale-100
+              "
+              onClick={goToSearchPage}
+            >
+                <Logo className="h-20 w-auto text-(--text-topper) cursor-pointer" />
             </div>
             <div
               className='absolute right-10 text-(--text-topper) font-bold text-lg cursor-pointer transition-all duration-150'
               onClick={() => changeThemeIcon()}
             >  
-                {darkThemeActivated ? <SunIcon className='w-8 h-8 text-(--text-topper) hover:scale-110 transition-all' /> : <MoonIcon className='w-8 h-8 text-(--text-topper) hover:scale-110 transition-all' />}
+            {/* Theme icon */}
+            <div className='text-(--text-topper) hover:scale-110 active:scale-100 transition-all'>
+              {darkThemeActivated ? <SunIcon className='w-8 h-8' /> : <MoonIcon className='w-8 h-8' />}
+            </div>
             </div>
         </div>
     );

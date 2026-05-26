@@ -30,6 +30,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
         [&::-webkit-slider-thumb]:bg-(--secondary)
         hover:[&::-webkit-slider-thumb]:bg-(--secondary-light)
         hover:[&::-webkit-slider-thumb]:scale-110
+        active:[&::-webkit-slider-thumb]:scale-80
 
         [&::-webkit-slider-thumb]:shadow-md
         [&::-webkit-slider-thumb]:transition-all
@@ -50,10 +51,10 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
     `;
 
     return (
-        <div className="p-6 rounded-2xl mt-4 space-y-6">
+        <div className="p-6 rounded-2xl mt-4 space-y-6 select-none">
             <div className="space-y-2">
                 <label className="text-2xl font-semibold text-(--secondary)">Modelo de Voz</label>
-                <div className="relative select-none" ref={ref}>
+                <div className="relative" ref={ref}>
                     <button
                       type="button"
                       onClick={() => setOpen(v => !v)}
@@ -138,7 +139,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
                     <span className="text-xl font-medium text-(--secondary)">Velocidade (Rate)</span>
-                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs select-none">
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
                         {data.rate}x
                     </span>
                 </div>
@@ -155,7 +156,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
                     <span className="text-xl font-medium text-(--secondary)">Tom (Pitch)</span>
-                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs select-none">
+                    <span className="text-sm font-bold bg-(--extra-2) text-(--text-topper) px-3 py-1 rounded-full shadow-xs">
                         {data.pitch}
                     </span>
                 </div>

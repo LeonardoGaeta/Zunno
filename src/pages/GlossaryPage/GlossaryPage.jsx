@@ -42,7 +42,7 @@ function GlossaryPage() {
                         <div className="border-b-2 border-(--secondary) w-[50%] mx-auto" />
                     </div>
                     <div
-                      className={`cursor-pointer hover:scale-110 transition-all
+                      className={`cursor-pointer hover:scale-110 active:scale-100 transition-all
                         ${!toggleBookmarkeds ? "outline-2 outline-(--secondary) text-(--secondary)" : "bg-(--secondary) text-(--bg)"} rounded-full p-3
                         md:absolute md:right-0
                       `}
@@ -73,7 +73,10 @@ function GlossaryPage() {
                                 )}
                                 <div className={`${!nextIsNewLetter && i < filteredData.length - 1 ? "shadow-custom-b" : ""}`}>
                                     <div
-                                      className="flex items-center justify-between cursor-pointer hover:scale-101 transition-transform p-10 select-none"
+                                      className="flex items-center justify-between
+                                        cursor-pointer select-none
+                                        hover:scale-101 active:scale-99 transition-transform
+                                        p-10"
                                       onClick={() => goToWord(currentWord)}
                                     >
                                         <div className="flex gap-6">

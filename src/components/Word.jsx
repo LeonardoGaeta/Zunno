@@ -94,6 +94,7 @@ function Word({ word: propWord }) {
                                               className={`
                                                 bg-(--btn-translate-tertiary) text-(--btn-translate-secondary) cursor-pointer text-xl px-8 rounded-2xl shadow-custom-b
                                                 hover:scale-110
+                                                active:scale-100 active:bg-(--btn-translate-secondary) active:text-(--btn-translate-tertiary)
                                                 transition-all duration-300 ease-in-out select-none
                                                 ${showTranslation[i] ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}
                                               `}

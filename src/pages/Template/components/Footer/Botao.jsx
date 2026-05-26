@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Botao({ rota, children }) {
     return (
-        <NavLink to={rota} className="relative w-20 h-24 flex justify-center items-center">
+        <NavLink to={rota} className="group relative w-20 h-24 flex justify-center items-center">
             {({ isActive }) => (
                 <>
                     {/* Círculo Maior */}
@@ -24,6 +24,7 @@ function Botao({ rota, children }) {
                         absolute w-18 h-18 rounded-full bg-(--icon-btn-tertiary)
                         flex items-center justify-center
                         transition-all duration-500 ease-out z-30
+                        hover:scale-110 active:scale-100
                         ${isActive 
                             ? "-translate-y-8 opacity-100 text-(--icon-btn-secondary)" // Cor do ícone quando ATIVO
                             : "translate-y-0 opacity-0"
@@ -34,7 +35,11 @@ function Botao({ rota, children }) {
 
                     {/* Children (Inativo) */}
                     {!isActive && (
-                        <div className="z-0 text-(--icon-btn-tertiary) transition-colors duration-300"> 
+                        <div
+                          className="
+                            z-0 text-(--icon-btn-tertiary) transition-all
+                            group-hover:scale-110 group-active:scale-100
+                        "> 
                             {children}
                         </div>
                     )}

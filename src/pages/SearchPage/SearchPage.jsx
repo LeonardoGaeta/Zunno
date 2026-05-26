@@ -15,7 +15,7 @@ function SearchPage() {
         <div className="flex flex-col gap-3 text-(--secondary)">
             <SearchBar />
             <SubContent>
-                <p className="mb-2 text-3xl">Pesquisas recentes</p>
+                <p className="mb-2 text-3xl text-center">Pesquisas recentes</p>
                 <History />
                 <div className="mt-10 -mx-2 px-2 py-2 rounded-t-2xl shadow-custom-s w-[calc(100%+1rem)]">
                     <div className="flex flex-col items-center justify-center">

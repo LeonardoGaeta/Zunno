@@ -36,7 +36,7 @@ function Word({ word: propWord }) {
     return(
         <div className="w-[calc(100%+1rem)]">
             {/* Header */}
-            <div className="flex justify-between px-6 py-2 shadow-custom-b flex-wrap">
+            <div className="flex items-center flex-col sm:justify-between sm:flex-row px-6 py-2 shadow-custom-b flex-wrap">
                 <div className="text-(--text-topper) text-4xl">{word.identification.name.en}</div>
                 <div className="flex gap-2 flex-wrap">
                     <Botao 

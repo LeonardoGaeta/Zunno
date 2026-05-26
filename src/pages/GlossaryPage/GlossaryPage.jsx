@@ -36,7 +36,7 @@ function GlossaryPage() {
     return (
         <SubContent>
             <div className="rounded-t-2xl shadow-custom-b w-[calc(100%+1rem)] py-3 rounded-b-2xl">
-                <div className="flex relative items-center justify-center gap-3 pb-2 mx-16">
+                <div className="flex flex-col md:flex-row relative items-center justify-center gap-3 pb-2 mx-16">
                     <div className="w-fit text-center">
                         <p className="text-4xl text-(--secondary)">Glossário</p>
                         <div className="border-b-2 border-(--secondary) w-[50%] mx-auto" />
@@ -44,7 +44,7 @@ function GlossaryPage() {
                     <div
                       className={`cursor-pointer hover:scale-110 transition-all
                         ${!toggleBookmarkeds ? "outline-2 outline-(--secondary) text-(--secondary)" : "bg-(--secondary) text-(--bg)"} rounded-full p-3
-                        absolute right-0
+                        md:absolute md:right-0
                       `}
                         onClick={() => setToggleBookmarkeds((prev) => !prev)}
                     >
@@ -53,7 +53,7 @@ function GlossaryPage() {
                 </div>
             </div>
             <div className="w-[calc(100%+1rem)]">
-                {filteredData.map((val, i) => {
+                {filteredData.length ? filteredData.map((val, i) => {
                         const currentWord = val.identification.name.en;
                         const firstLetter = currentWord[0].toUpperCase();
 
@@ -94,7 +94,7 @@ function GlossaryPage() {
                             </div>
                         );
                     }
-                )}
+                ) : <div className="flex justify-center my-6 text-(--word-text-color)">Sem favoritos</div>}
             </div>
         </SubContent>
     )

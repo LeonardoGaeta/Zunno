@@ -54,11 +54,11 @@ function SearchBar() {
         <div className="relative w-full">
             <div className="bg-(--bg) rounded-full p-2 shadow-custom-b">
                 <div className="bg-(--primary) rounded-full py-2 px-4 flex items-center gap-2 shadow-custom-b">
-                    <SearchIcon className="w-7 text-(--black-transparent)" />
+                    <SearchIcon className="w-7 text-(--word-text-color)" />
                     <input
                         type="text"
                         placeholder="Pesquisar"
-                        className="placeholder-(--black-transparent) w-full focus:outline-none flex-1 text-[17px] select-none"
+                        className="placeholder-(--word-text-color) text-(--text-topper) w-full focus:outline-none flex-1 text-[17px] select-none"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter'
@@ -84,7 +84,7 @@ function SearchBar() {
                                 onClick={() => goToWord(item.identification.name.en)}
                                 className="pl-12 py-4 hover:bg-(--primary) cursor-pointer flex justify-start items-end gap-2 border-b last:border-none border-(--bg) select-none"
                             >
-                                <span className="text-2xl text-(--black-transparent)">
+                                <span className="text-2xl text-(--word-text-color)">
                                     {item.identification.name.en}
                                 </span>
                                 <span className="text-lg text-(--secondary-transparent)">
@@ -93,7 +93,7 @@ function SearchBar() {
                             </li>
                         ))
                     ) : (
-                        <li className="py-4 text-center text-(--black-transparent) select-none">
+                        <li className="py-4 text-center text-(--word-text-color) select-none">
                             Nenhum resultado encontrado
                         </li>
                     )}

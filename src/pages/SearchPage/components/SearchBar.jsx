@@ -54,7 +54,15 @@ function SearchBar() {
         <div className="relative w-full">
             <div className="bg-(--bg) rounded-full p-2 shadow-custom-b">
                 <div className="bg-(--primary) rounded-full py-2 px-4 flex items-center gap-2 shadow-custom-b">
-                    <SearchIcon className="w-7 text-(--word-text-color)" />
+                    <SearchIcon
+                      className={`w-7 text-(--word-text-color)
+                        ${suggestion && suggestion[0] && "cursor-pointer hover:scale-110 active:scale-100 transition-all"}
+                        `}
+                      onClick={() => suggestion
+                                && suggestion[0]
+                                && goToWord(suggestion[0].identification.name.en)
+                      }
+                    />
                     <input
                         type="text"
                         placeholder="Pesquisar"

@@ -2,7 +2,8 @@ function ButtonAction({ background, handle, children: texto }) {
   const backgrounds = {
     "secondary-transparent": "bg-(--secondary-transparent)",
     "tertiary-transparent": "bg-(--tertiary-transparent)",
-    "black-transparent": "bg-(--black-transparent-2)",
+    "black-transparent-2": "bg-(--black-transparent-2)",
+    "banana": "bg-(--primary)",
   }
 
     return (

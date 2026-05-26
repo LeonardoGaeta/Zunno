@@ -50,7 +50,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
     `;
 
     return (
-        <div className="p-6 rounded-2xl my-4 space-y-6">
+        <div className="p-6 rounded-2xl mt-4 space-y-6">
             <div className="space-y-2">
                 <label className="text-2xl font-semibold text-(--secondary)">Modelo de Voz</label>
                 <div className="relative select-none" ref={ref}>

@@ -17,13 +17,17 @@ function useSavedWords() {
         const word = wordEn.toLowerCase();
 
         setSavedWords((prev) => {
-            if (savedWords.includes(word)) {
+            if (prev.includes(word)) {
                 return prev.filter((w) => w !== word);
             } return [...prev, word];
         });
     } 
 
-    return { savedWords, savedWordsSet, toggleWord };
+    const clearSavedWords = () => {
+        setSavedWords([]);
+    }
+
+    return { savedWords, savedWordsSet, toggleWord, clearSavedWords };
 }
 
 export default useSavedWords;

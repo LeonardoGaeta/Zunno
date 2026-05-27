@@ -4,6 +4,9 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
+    const langVoices = voices.filter(v => v.lang === langKey);
+    console.log(langVoices)
+
     const selectedVoice = voices.find(v => v.voiceURI === data.voiceURI);
 
     useEffect(() => {
@@ -115,7 +118,7 @@ function LanguageSection ({ langKey, voices, data, onChange }) {
                             >
                                 Padrão do Sistema
                             </div>
-                            {voices.map(v => (
+                            {langVoices.map(v => (
                                 <div
                                   key={v.voiceURI}
                                   onClick={() => {

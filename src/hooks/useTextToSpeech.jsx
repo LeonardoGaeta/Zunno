@@ -68,7 +68,7 @@ function useTextToSpeech() {
         } finally {
             setIsSpeaking(false);
         }
-    }, [isReady, isSpeaking, profiles]);
+    }, [isReady, isSpeaking, profiles, voices]);
 
     return { speak, voices, isReady, isSpeaking, profiles, refreshProfiles};
 }
